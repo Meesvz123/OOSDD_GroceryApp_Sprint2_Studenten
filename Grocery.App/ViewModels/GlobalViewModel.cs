@@ -7,3 +7,4 @@ namespace Grocery.App.ViewModels
         public Client Client { get; set; }
     }
 }
+//k
