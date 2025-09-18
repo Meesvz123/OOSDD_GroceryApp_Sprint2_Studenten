@@ -1,5 +1,5 @@
-﻿using Grocery.App.ViewModels;
-using Grocery.App.Views;
+﻿using Grocery.App.Views;
+using Grocery.App.ViewModels;
 
 namespace Grocery.App
 {
@@ -9,7 +9,7 @@ namespace Grocery.App
         
             InitializeComponent();
 
-            MainPage = new Grocery.App.Views.LoginView(viewModel);
+            MainPage = new LoginView(viewModel);
         }
     }
 }
