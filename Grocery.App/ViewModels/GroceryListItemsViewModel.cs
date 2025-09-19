@@ -39,7 +39,7 @@ namespace Grocery.App.ViewModels
             foreach (var product in alleProducten)
             {
                 bool bestaatAl = MyGroceryListItems.Any(item => item.ProductId == product.Id);
-                if (bestaatAl = false & product.Stock > 0);
+                if (bestaatAl = true & product.Stock > 0);
                 {
                     AvailableProducts.Add(product);
                 }
@@ -65,14 +65,26 @@ namespace Grocery.App.ViewModels
         [RelayCommand]
         public void AddProduct(Product product)
         {
+            //var BestaatProduct = _productService.Get(product.Id);
+            //if (BestaatProduct != null & BestaatProduct.Stock > 0)
+            //{
+            //    var nieuwItem = new GroceryListItem(0, GroceryList.Id, 1, product.Id);
+            //    _groceryListItemsService.Add(nieuwItem);
+            //    BestaatProduct.Stock--;
+            //    _productService.Update(BestaatProduct);
+            //    GetAvailableProducts();
+            if (product == null)
+                return;
+
             var BestaatProduct = _productService.Get(product.Id);
-            if (BestaatProduct != null & BestaatProduct.Stock > 0)
+            if (BestaatProduct != null && BestaatProduct.Stock > 0)
             {
-                var nieuwItem = new GroceryListItem(0, GroceryList.Id, 1, product.Id);
+                var nieuwItem = new GroceryListItem(0, GroceryList.Id, product.Id, 1);
                 _groceryListItemsService.Add(nieuwItem);
                 BestaatProduct.Stock--;
                 _productService.Update(BestaatProduct);
                 GetAvailableProducts();
+                Load(GroceryList.Id);
 
             }
             //Controleer of het product bestaat en dat de Id > 0
