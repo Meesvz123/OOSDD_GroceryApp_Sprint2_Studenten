@@ -30,7 +30,7 @@ namespace Grocery.Core.Services
 
         public Product? Get(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetAll().FirstOrDefault(p => p.Id == id);
         }
 
         public Product? Update(Product item)
