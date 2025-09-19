@@ -65,14 +65,6 @@ namespace Grocery.App.ViewModels
         [RelayCommand]
         public void AddProduct(Product product)
         {
-            //var BestaatProduct = _productService.Get(product.Id);
-            //if (BestaatProduct != null & BestaatProduct.Stock > 0)
-            //{
-            //    var nieuwItem = new GroceryListItem(0, GroceryList.Id, 1, product.Id);
-            //    _groceryListItemsService.Add(nieuwItem);
-            //    BestaatProduct.Stock--;
-            //    _productService.Update(BestaatProduct);
-            //    GetAvailableProducts();
             if (product == null)
                 return;
 
